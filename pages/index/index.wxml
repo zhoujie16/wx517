@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view class='bg-view'>
+  <image src='../../imgs/bg01.jpg'></image>
+  <view class='main-view'>
+    <text class='date block'>2018-05-17</text>
+    <text class='title block'>和你相识的开始</text>
+    <text class='span block'>295<text class=''>DAYS</text></text>
+    <!-- <view bindtap='showBigDays'>按钮</view> -->
+  </view>
+</view>

@@ -1,0 +1,47 @@
+/**index.wxss**/
+.bg-view {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.bg-view image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.main-view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  padding-left: 20px;
+  /* background-color: lightblue; */
+}
+
+text {
+  color: white;
+}
+.date{
+  margin-top: 100px;
+  font-size: 25px;
+}
+.title{
+  font-size: 20px;
+}
+.span{
+  position: absolute;
+  bottom: 100px;
+  font-size: 80px;
+}
+.span text{
+  font-size: 30px;
+}
