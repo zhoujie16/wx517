@@ -22,6 +22,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tapIndex:0,
+    animationData: {},
+    timeNum: 0,
+    timeTxt: '',
     days: 0,
     hours_all: 0,
     minutes_all: 0,
@@ -35,12 +39,18 @@ Page({
     var self = this;
     var date_meet = '2017/05/17 09:41:00'; //开始时间 
     var timer = setInterval(function () {
-      self.data.days = computeTimeDiff(date_meet, 'days');
-      self.data.hours_all = computeTimeDiff(date_meet, 'hours');
-      self.data.minutes_all = computeTimeDiff(date_meet, 'minutes');
-      self.data.seconds_all = computeTimeDiff(date_meet, 'seconds');
-      console.log('天', self.data.days, '小时', self.data.hours_all, '分钟', self.data.minutes_all, '秒', self.data.seconds_all);
-    }, 500);
+     var days = computeTimeDiff(date_meet, 'days');
+     var hours_all = computeTimeDiff(date_meet, 'hours');
+     var minutes_all = computeTimeDiff(date_meet, 'minutes');
+     var seconds_all = computeTimeDiff(date_meet, 'seconds');
+      console.log('天', days, '小时', hours_all, '分钟', minutes_all, '秒', seconds_all);
+      self.setData({
+        days: days,
+        hours_all: hours_all,
+        minutes_all: minutes_all,
+        seconds_all: seconds_all,
+      });
+    },100);
     //计算时间差
     function computeTimeDiff(endDate, type) {
       var nowDate = new Date(); //结束时间  
@@ -104,6 +114,41 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+  menuTap:function(){
+    console.log('点击菜单')
+  },
+  timeTap: function () {
+    console.log('时间点击');
+    //第一段动画 隐藏
+    var animation1 = wx.createAnimation({
+      transformOrigin: "10% 30%",
+      duration: 1000,
+      timingFunction: 'ease',
+    });
+    var animation2 = wx.createAnimation({
+      transformOrigin: "10% 30%",
+      duration: 1000,
+      timingFunction: 'ease',
+    });
+    animation1.scaleX(0).scaleY(0).opacity(0).step();
+    this.setData({
+      animationData: animation1.export()
+    });
+    setTimeout(function () {
+      this.setData({
+        tapIndex: this.data.tapIndex+1
+      });
+      animation2.scaleX(1).scaleY(1).opacity(1).step();
+      this.setData({
+        animationData: animation2.export()
+      })
+    }.bind(this), 1000)
+
+
+
+
 
   }
 })

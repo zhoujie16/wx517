@@ -14,9 +14,29 @@
 <view class='bg-view'>
   <image src='../../imgs/bg01.jpg'></image>
   <view class='main-view'>
+    <view bindtap='menuTap' class='menu-view'>
+       <image src='../../imgs/menu.png'></image> 最美时光 
+    </view>
     <text class='date block'>2018-05-17</text>
-    <text class='title block'>和你相识的开始</text>
-    <text class='span block'>295<text class=''>DAYS</text></text>
+    <text class='title block'>我和ta相识的开始</text>
+    <view bindtap='timeTap' animation="{{animationData}}" class='time-view'>
+      <view wx:if="{{tapIndex%4 === 0}}">
+        <text class='time-text'>{{days}}</text>
+        <text class='time-sub'>天</text>
+      </view>
+      <view wx:elif="{{tapIndex%4 === 1}}">
+        <text class='time-text'>{{hours_all}}</text>
+        <text class='time-sub'>小时</text>
+      </view>
+      <view wx:elif="{{tapIndex%4 === 2}}">
+        <text class='time-text'>{{minutes_all}}</text>
+        <text class='time-sub'>分钟</text>
+      </view>
+      <view wx:elif="{{tapIndex%4 === 3}}">
+        <text class='time-text' style='font-size: 140rpx;margin-top:45rpx;'>{{seconds_all}}</text>
+        <text class='time-sub'>秒</text>
+      </view>
+    </view>
     <!-- <view bindtap='showBigDays'>按钮</view> -->
   </view>
 </view>
