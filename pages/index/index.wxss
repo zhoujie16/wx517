@@ -8,7 +8,7 @@
   left: 0;
 }
 
-.bg-view image {
+.bg-view .bg-img {
   position: absolute;
   left: 0;
   top: 0;
@@ -51,7 +51,7 @@ text {
 }
 
 .date {
-  margin-top: 60rpx;
+  margin-top: 350rpx;
   font-size: 55rpx;
   padding-left: 40rpx;
 }
@@ -86,3 +86,5 @@ text {
   padding-left: 40rpx;
   line-height: 40rpx;
 }
+
+

@@ -1,0 +1,10 @@
+<view class='list-view'>
+  <view class='list-title'>
+  <view bindtap='backTap' class='back-btn'> </view>
+    我们在一起的时光
+  </view>
+  <scroll-view scroll-y>
+    <image bindload='listImgLoad' mode="widthFix" class='list-img' src='{{listImgSrc}}'></image>
+    <view wx:if="{{!imgShow}}" class='img-mask'></view>
+  </scroll-view>
+</view>

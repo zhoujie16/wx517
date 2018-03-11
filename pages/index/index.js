@@ -22,7 +22,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tapIndex:0,
+    tapIndex: 0,
     animationData: {},
     timeNum: 0,
     timeTxt: '',
@@ -39,10 +39,10 @@ Page({
     var self = this;
     var date_meet = '2017/05/17 09:41:00'; //开始时间 
     var timer = setInterval(function () {
-     var days = computeTimeDiff(date_meet, 'days');
-     var hours_all = computeTimeDiff(date_meet, 'hours');
-     var minutes_all = computeTimeDiff(date_meet, 'minutes');
-     var seconds_all = computeTimeDiff(date_meet, 'seconds');
+      var days = computeTimeDiff(date_meet, 'days');
+      var hours_all = computeTimeDiff(date_meet, 'hours');
+      var minutes_all = computeTimeDiff(date_meet, 'minutes');
+      var seconds_all = computeTimeDiff(date_meet, 'seconds');
       console.log('天', days, '小时', hours_all, '分钟', minutes_all, '秒', seconds_all);
       self.setData({
         days: days,
@@ -50,7 +50,7 @@ Page({
         minutes_all: minutes_all,
         seconds_all: seconds_all,
       });
-    },100);
+    }, 100);
     //计算时间差
     function computeTimeDiff(endDate, type) {
       var nowDate = new Date(); //结束时间  
@@ -72,7 +72,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    const backgroundAudioManager = wx.getBackgroundAudioManager()
 
+    backgroundAudioManager.title = '小幸运'
+    backgroundAudioManager.singer = '田馥甄'
+    backgroundAudioManager.coverImgUrl = 'http://pic.xiami.net/images/album/img49/360049/11364555381520360052.jpg@4e_1c_100Q_185w_185h'
+    backgroundAudioManager.src = 'http://zhoujie16.gitee.io/link/xiaoxingyun.mp3' // 设置了 src 之后会自动播放
   },
 
   /**
@@ -116,8 +121,19 @@ Page({
   onShareAppMessage: function () {
 
   },
-  menuTap:function(){
-    console.log('点击菜单')
+  playMusic: function () {
+    const backgroundAudioManager = wx.getBackgroundAudioManager()
+    backgroundAudioManager.title = '此时此刻'
+    backgroundAudioManager.epname = '此时此刻'
+    backgroundAudioManager.singer = '汪峰'
+    backgroundAudioManager.coverImgUrl = 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000'
+    backgroundAudioManager.src = '../../audio/bg01.mp3'
+  },
+  menuTap: function () {
+    console.log('点击菜单');
+    wx.navigateTo({
+      url: '../timeList/timeList'
+    })
   },
   timeTap: function () {
     console.log('时间点击');
@@ -138,7 +154,7 @@ Page({
     });
     setTimeout(function () {
       this.setData({
-        tapIndex: this.data.tapIndex+1
+        tapIndex: this.data.tapIndex + 1
       });
       animation2.scaleX(1).scaleY(1).opacity(1).step();
       this.setData({

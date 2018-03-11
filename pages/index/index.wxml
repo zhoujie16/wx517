@@ -12,12 +12,12 @@
   </view>
 </view> -->
 <view class='bg-view'>
-  <image src='../../imgs/bg01.jpg'></image>
+  <image class='bg-img' src='../../imgs/bg01.jpg'></image>
   <view class='main-view'>
     <view bindtap='menuTap' class='menu-view'>
-       <image src='../../imgs/menu.png'></image> 最美时光 
+      <image src='../../imgs/menu.png'></image> 我们在一起的时光
     </view>
-    <text class='date block'>2018-05-17</text>
+    <text class='date block'>2017-05-17</text>
     <text class='title block'>我和ta相识的开始</text>
     <view bindtap='timeTap' animation="{{animationData}}" class='time-view'>
       <view wx:if="{{tapIndex%4 === 0}}">
@@ -39,4 +39,5 @@
     </view>
     <!-- <view bindtap='showBigDays'>按钮</view> -->
   </view>
+  
 </view>
